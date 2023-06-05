@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <!-- Підключення Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/css/bootstrap.min.css">
+    <!-- CSS стиль для форми -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-controlbtn {
+            width: 100%;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-container">
+                <h1>Log in</h1>
+                <form id="myForm" action="http://localhost:8080/api/user/auth" method="POST">
+                    <div class="form-group">
+                        <label for="email">Login</label>
+                        <input type="text" name="email" id="email" class="form-control" aria-label="login">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control"
+                               aria-label="password">
+                    </div>
+
+                    <input type="hidden" name="status" class="form-control" value="fuck" aria-label="password">
+                    <input type="hidden" name="name" class="form-control" value="fuck" aria-label="password">
+
+                    <div class="form-group">
+                        <input type="submit" class="form-controlbtn btn-outline-secondary" value="Log in">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Підключення скрипту Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
+
+<script>
+        // Отримуємо посилання на форму
+        const form = document.getElementById('myForm');
+
+        // Обробник події надсилання форми
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // Зупиняємо стандартну поведінку форми
+
+            // Створюємо об'єкт FormData для отримання даних з форми
+            const formData = new FormData(form);
+
+            // Створюємо об'єкт параметрів запиту
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(Object.fromEntries(formData.entries()))
+            };
+
+            // Відправляємо запит на сервер
+            fetch('http://localhost:8080/api/user/auth', options)
+                .then(async response => {
+                    if (response.ok) {
+                        let t = await response.text()
+                        alert(t);
+                        localStorage.setItem('token', t)
+                        // Успішно надіслано форму
+                        form.innerHTML = `<h2><a href="http://localhost:8080/admin.html">Перейти на сторінку адміністратора</a></h2>`;
+                        // Виконайте додаткові дії, які ви бажаєте
+                    } else {
+                        // Помилка при надсиланні форми
+                        console.error('Помилка при надсиланні форми');
+                    }
+                })
+                .catch(error => {
+                    console.error('Сталася помилка:', error);
+                });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://uk.allfont.net/allfont.css?fonts=junegull-regular" rel="stylesheet" type="text/css" />
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+    <style>
+        .carousel-item img {
+            object-fit: cover;
+            aspect-ratio: 29/9;
+            width: 100%;
+        }
+
+        #carouselExampleDark .carousel-caption h5 {
+            color: white;
+            text-align: center;
+            font-size: 36px;
+            font-family: arial-black, sans-serif;
+        }
+
+        #carouselExampleDark .carousel-caption p {
+            border-radius: 10px;
+            font-size: 24px;
+            color: white;
+            font-family: arial-black, sans-serif;
+
+        }
+
+        a img {
+            width: 3rem;
+            height: auto;
+        }
+
+        img {
+            object-fit: cover;
+            aspect-ratio: 4/3;
+        }
+
+        section.sections {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 3rem;
+            margin: 10rem;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        section {
+            margin: 10rem;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        table {
+            margin-bottom: 5rem !important;
+        }
+
+        section.treners {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            gap: 3rem;
+            margin: 10rem;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        span {
+            margin: 3rem;
+            margin-left: 10rem;
+        }
+
+        img.me-2 {
+            width: 1.5rem;
+            height: auto;
+        }
+
+        img.human {
+            object-fit: cover;
+            aspect-ratio: 3/4;
+        }
+
+        #subscribe {
+          text-align: left;
+          margin-bottom: 150px;
+        }
+
+        #subscribe form {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            gap: 3rem;
+            margin: 10rem;
+            margin-top: auto;
+            margin-bottom: 20px;
+
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #subscribe label {
+          display: block;
+          margin-bottom: 10px;
+          margin-left: 155px;
+        }
+
+        #subscribe input[type="text"],
+        #subscribe input[type="email"],
+        #subscribe select {
+          width: 200px;
+          padding: 10px;
+          margin-bottom: 15px;
+          margin-left: 155px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+
+        #subscribe input[type="submit"] {
+          background-color: #0d6efd;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-left: 185px;
+        }
+
+        #subscribe input[type="submit"]:hover {
+          background-color: #45a049;
+        }
+
+        #subscribe img {
+           float: right;
+           margin-left: 10px;
+           margin-right: 90px;
+           width: 480px;
+           height: auto;
+           border-radius: 15px;
+        }
+
+
+</style>
+
+    </style>
+    <title>Sections</title>
+</head>
+
+<body onload="toast()">
+<header>
+    <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="src/dumbbells_icon-icons.com_59199.svg"/>«Гантель»</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Головна</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://t.me/juggernxut">Контакти</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled"><?php echo 'Hi '.$_REQUEST['name'].'!'; ?></a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <select class="form-control me-2" id="search">
+                        <optgroup label="Секції">
+                        <option value="" disabled selected hidden></option>
+                            <option value="Баскетбол">Баскетбол</option>
+                            <option value="Бокс">Бокс</option>
+                            <option value="Волейбол">Волейбол</option>
+                            <option value="Гандбол">Гандбол</option>
+                            <option value="Ритмічна гімнастика">Гімнастика</option>
+                            <option value="Карате">Карате</option>
+                            <option value="Плавання">Плавання</option>
+                            <option value="Теніс">Теніс</option>
+                            <option value="Футбол">Футбол</option>
+                        </optgroup>
+                        <optgroup label=""></optgroup>
+
+                        <optgroup label="Тренери">
+                            <option value="Шмаль">Анна Шмаль</option>
+                            <option value="Опенько">Володимир Опенько</option>
+                            <option value="Вдівець">Петро Вдівець</option>
+                            <option value="Моставчук">Петро Моставчук</option>
+                            <option value="Кордупенко">Сергій Кордупенко</option>
+                            <option value="Маляр">Тарас Маляр</option>
+                            <option value="Андрій Усенко">Усенко</option>
+                            <option value="Якимів">Юлія Якимів</option>
+                        </optgroup>
+                        <optgroup label=""></optgroup>
+
+                        <optgroup label="Ціни">
+                            <option value="Баскетбол">2000 грн</option>
+                            <option value="Ритмічна Гімнастика">2200 грн</option>
+                            <option value="Бокс">2300 грн</option>
+                            <option value="Гандбол">2500 грн</option>
+                            <option value="Волейбол">2600 грн</option>
+                            <option value="Теніс">2700 грн</option>
+                            <option value="Плавання">2800 грн</option>
+                            <option value="Футбол">3000 грн</option>
+                            <option value="Карате">3200 грн</option>
+                        </optgroup>
+                    </select>
+                    <button class="btn btn-outline-success" type="button" onclick="window.location = '#' + document.getElementById('search').value">Пошук</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="src/pexels-mike-1192043.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>ЗДОРОВИЙ СПОСІБ ЖИТТЯ</h5>
+                    <p>Уникніть захворювань пов'язаних з сидячим способом життя</p>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+                <img src="src/pexels-rodnae-productions-7188044.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>РУХ</h5>
+                    <p>Тримаєйте свої м'язи в тонусі</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="src/pexels-kindel-media-7426197.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>РЕЛАКС</h5>
+                    <p>Дайте вашій голові й тілу відпочинок</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <h2><span class="badge text-bg-dark">Секції</span></h2>
+
+    <section class="sections" id="sections-container">
+        <script>
+            function fetchData(url, callback) {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        callback(JSON.parse(xhr.responseText));
+                    }
+                };
+                xhr.open("GET", url, true);
+                xhr.send();
+            }
+
+            function renderData(data) {
+                var sectionsContainer = document.getElementById("sections-container");
+
+                data.forEach(function (section) {
+                    var card = document.createElement("div");
+                    card.className = "card";
+                    card.id = section.name;
+                    card.style = "width: 18rem;";
+
+                    var img = document.createElement("img");
+                    img.src = section.photo;
+                    img.className = "card-img-top";
+                    img.alt = "...";
+
+                    var cardBody = document.createElement("div");
+                    cardBody.className = "card-body";
+
+                    var title = document.createElement("h3");
+                    title.className = "card-title";
+                    title.innerHTML = section.name;
+
+                    var text = document.createElement("p");
+                    text.className = "card-text";
+                    text.innerHTML = '<h5>' + section.sportInventory + '</h5>'
+                    +'<br/>' + '<b>Тренер: </b>' + section.coach
+                    +'<br/>' + '<b>Заняття: </b>' + section.days
+                    +'<br/>' + '<b>Ціна: </b>' + section.price;
+
+                    var link = document.createElement("a");
+                    link.href = "mailto:sergiykit27@gmail.com";
+                    link.className = "btn btn-primary";
+                    link.innerHTML = "Написати тренеру";
+
+                    cardBody.appendChild(title);
+                    cardBody.appendChild(text);
+                    cardBody.appendChild(link);
+
+                    card.appendChild(img);
+                    card.appendChild(cardBody);
+
+                    sectionsContainer.appendChild(card);
+                });
+            }
+
+            fetchData("http://localhost:8080/api/section", renderData);
+        </script>
+    </section>
+
+    <h2><span class="badge text-bg-dark">Тренери</span></h2>
+
+    <section class="treners">
+        <div class="card" id="Опенько" style="width: 12rem;">
+            <img src="src/vova.jpg" class="card-img-top human" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Володимир Опенько</h5>
+                <p class="card-text">Ветеран м'яча і поля</p>
+            </div>
+        </div>
+
+        <div class="card" id="Моставчук" style="width: 12rem;">
+            <img src="src/petro.jpg" class="card-img-top human" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Петро Моставчук</h5>
+                <p class="card-text">Тридцять сім років професіоналізму</p>
+            </div>
+        </div>
+
+        <div class="card" id="Якимів" style="width: 12rem;">
+            <img src="src/julia.jpg" class="card-img-top human" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Юлія Якимів</h5>
+                <p class="card-text">Допоможу досягти автоматизму в рухах</p>
+            </div>
+        </div>
+
+        <div class="card" id="Усенко" style="width: 12rem;">
+            <img src="src/pexels-annushka-ahuja-7991683.jpg" class="card-img-top human" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Андрій Усенко</h5>
+                <p class="card-text">Подвійний чемпіон "Залізного кулака"</p>
+            </div>
+        </div>
+
+        <div class="card" id="Вдівець" style="width: 12rem;">
+            <img src="src/pexels-pixabay-207693.jpg" class="card-img-top human" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Петро Вдівець</h5>
+                <p class="card-text">Баскетбольна площадка - моє все</p>
+            </div>
+        </div>
+
+        <div class="card" id="Кордупенко" style="width: 12rem;">
+            <img src="src/pexels-cottonbro-4114728.jpg" class="card-img-top human" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Сергій Кордупенко</h5>
+                <p class="card-text">Теніс - це шахи в русі</p>
+            </div>
+        </div>
+
+        <div class="card" id="Шмаль" style="width: 12rem;">
+            <img src="src/pexels-scott-webb-136409.jpg" class="card-img-top human" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Анна Шмаль</h5>
+                <p class="card-text">Заняття в басейні - найкращий спосіб вдосконалити свою фізичну форму</p>
+            </div>
+        </div>
+
+        <div class="card" id="Маляр" style="width: 12rem;">
+            <img src="src/pexels-artem-podrez-6253180.jpg" class="card-img-top human" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Тарас Маляр</h5>
+                <p class="card-text">Вміння рухатися, а не тільки бити - важлива якість бійця</p>
+            </div>
+        </div>
+    </section>
+
+    <h2><span class="badge text-bg-dark">Опції</span></h2>
+
+    <section>
+        <center>
+            <form id="subscribe" action="http://localhost:8080/api/user" method="POST" enctype="application/json">
+                <img src="src/Coach.jpg" alt="Фото">
+                <label for="name">Ім'я:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br>
+
+                <label for="status">Секція:</label>
+                <select id="status" name="status" required>
+                    <option value="" disabled selected hidden> </option>
+                    <option value="Футбол">Футбол</option>
+                    <option value="Карате">Карате</option>
+                    <option value="Баскетбол">Баскетбол</option>
+                    <option value="Бокс">Бокс</option>
+                    <option value="Плавання">Плавання</option>
+                    <option value="Волейбол">Волейбол</option>
+                    <option value="Ритмічна гімнастика">Ритмічна гімнастика</option>
+                    <option value="Теніс">Теніс</option>
+                    <option value="Гандбол">Гандбол</option>
+                </select>
+
+                <br>
+
+                <input type="hidden" id="password" value="null" name="password">
+                <br>
+
+                <input type="submit" value="Записатися">
+
+            </form>
+        </center>
+        <script>
+            // Отримуємо посилання на форму
+            const form = document.getElementById('subscribe');
+
+            // Обробник події надсилання форми
+            form.addEventListener('submit', (event) => {
+                event.preventDefault(); // Зупиняємо стандартну поведінку форми
+
+                // Створюємо об'єкт FormData для отримання даних з форми
+                const formData = new FormData(form);
+
+                // Створюємо об'єкт параметрів запиту
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(Object.fromEntries(formData.entries()))
+                };
+
+                // Відправляємо запит на сервер
+                fetch('http://localhost:8080/api/user', options)
+                    .then(response => {
+                        if (response.ok) {
+                            // Успішно надіслано форму
+                            form.innerHTML = `<h2>Форма надіслана успішно</h2>`;
+                            // Виконайте додаткові дії, які ви бажаєте
+                        } else {
+                            // Помилка при надсиланні форми
+                            console.error('Помилка при надсиланні форми');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Сталася помилка:', error);
+                    });
+            });
+        </script>
+
+    </section>
+</main>
+<footer>
+
+</footer>
+<div>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="src/dumbbells_icon-icons.com_59199.svg" class="me-2" alt="...">
+                <strong class="me-auto">«Гантель»</strong>
+                <small>Нове сповіщення!</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Вітаємо в "Гантелі"! Напишіть, якщо виникли питання.<br/>
+                <a href="mailto:sergiykit27@gmail.com" class="btn btn-primary">Написати тренеру</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        const toastTrigger = document.getElementById('liveToastBtn')
+        const toastLiveExample = document.getElementById('liveToast')
+        var toast = () => {
+            const toast = new bootstrap.Toast(toastLiveExample)
+
+            toast.show()
+        }
+    </script>
+</div>
+
+</body>
+
+</html>
